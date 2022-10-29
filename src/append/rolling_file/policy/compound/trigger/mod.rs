@@ -8,6 +8,8 @@ use crate::config::Deserializable;
 
 #[cfg(feature = "size_trigger")]
 pub mod size;
+#[cfg(feature = "client_trigger")]
+pub mod client;
 
 /// A trait which identifies if the active log file should be rolled over.
 pub trait Trigger: fmt::Debug + Send + Sync + 'static {
