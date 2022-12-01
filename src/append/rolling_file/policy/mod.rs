@@ -13,8 +13,8 @@ pub mod compound;
 pub trait Policy: Sync + Send + 'static + fmt::Debug {
     /// Rolls the current log file, if necessary.
     ///
-    /// This method is called after each log event. It is provided a reference
-    /// to the current log file.
+    /// This method is called on each log event. It is provided a reference
+    /// to the current log file.  It is called _before_ the log is written.
     fn process(&self, log: &mut LogFile) -> anyhow::Result<()>;
 }
 
